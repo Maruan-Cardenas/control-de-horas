@@ -1,0 +1,27 @@
+.home-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.home-section{
+    text-align: center;
+}
+
+@media screen and (min-width:800px){
+    .home-section__title{
+        grid-column: 1 / 3;
+    }
+}
+
+
+.home-article__nintendo, .home-article__playstation, .home-article__xbox, .home-article__pc{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.home-article__title{
+    text-align: center;
+}
+

@@ -1,0 +1,20 @@
+.select-container{
+    width: 100%;
+    text-align: center;
+    margin: 1em auto;
+}
+
+.select-select{
+    outline: none;
+    padding: .3em;
+    padding-left: .5em;
+    font-size:1.2em;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: black;
+    font-weight: 800;
+}
+
+.selectError{
+    background-color: red;
+}
