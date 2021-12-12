@@ -13,12 +13,14 @@ import CardUser from 'component/CardUser/CardUser'
 import PopUp from 'component/PopUp/PopUp'
 import ImagePreview from 'component/ImagePreview/ImagePreview'
 import useImgForm from 'hooks/Form/useImgForm'
+import { getAuth, updateProfile } from 'firebase/auth'
 
 const User = () => {
-  const { setPopUp, popUp } = useContext(SesionContext)
+  const { setPopUp, popUp, urlBb } = useContext(SesionContext)
   const { setLogOut } = useLogOut()
   const { userName, userImg, userEmail } = useGetUserData()
   const [handleFile, image, handleReset, handleSetImgForm] = useImgForm()
+  const auth = getAuth()
 
   const handleLogOut = () => {
     setLogOut(true)
@@ -28,16 +30,31 @@ const User = () => {
     setPopUp(name)
   }
 
+  const handleSetChange = (e) => {
+    e.preventDefault()
+    updateProfile(auth.currentUser, {
+      photoURL: urlBb
+    }).then(() => {
+      window.location.reload()
+    }).catch((error) => {
+      console.error(error)
+    })
+  }
+
   return (
     <section className='user-container'>
       <article className='user-data'>
-        <label>
-          <img src={userImg} alt={userName} />
-          <input type='file' onChange={(e) => handleFile(e.target.files)} placeholder={userName} />
+        <label className='user-label'>
           {
-            popUp === 'imagePreview' &&
-              <PopUp component={<ImagePreview image={image} handleSetImgForm={handleSetImgForm} handleReset={handleReset} />} />
+            urlBb
+              ? <img className='user-img' src={urlBb} alt={userName} />
+              : <img className='user-img' src={userImg} alt={userName} />
           }
+          {
+            urlBb &&
+              <button className='user-imgButton' onClick={handleSetChange}>Confirmar</button>
+          }
+          <input type='file' onChange={(e) => handleFile(e.target.files)} placeholder={userName} />
         </label>
         <div className='user-component'>
           <UserData
@@ -71,6 +88,10 @@ const User = () => {
           <button className='user-cards__button' onClick={() => handlePopUp('moreArticles')}>Ver más...</button>
         </div>
       </article>
+      {
+        popUp === 'imagePreview' &&
+          <PopUp component={<ImagePreview image={image} handleSetImgForm={handleSetImgForm} handleReset={handleReset} />} />
+      }
     </section>
   )
 }

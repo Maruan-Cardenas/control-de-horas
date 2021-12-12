@@ -1,76 +1,87 @@
-.user-container, .user-data{
-    display: flex;
+.user-container, 
+.user-data, 
+.user-imgButton {
     align-items: center;
-    justify-content: center;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-.user-container{
+.user-container {
     width: 90%;
 }
 
-.user-data{
-    padding-top: .5em;
+.user-data {
     background-color: #1D1F20;
-    box-shadow: 2px 2px 3px #55c265;
     border-radius: 15px;
+    box-shadow: 2px 2px 3px #55c265;
     margin-top: 2em;
     min-width: 350px;
+    padding-top: .5em;
 }
 
-.user-component{
+.user-component {
     width: 100%;
 }
 
-.user-logOut{
+.user-logOut {
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    color: #55c265;
     cursor: pointer;
     margin: .5em;
-    padding: .5em;
-    background-color: white;
-    border: none;
-    border-radius: 10px;
-    color: #55c265;
     overflow: hidden;
+    padding: .5em;
 }
 
-.user-container label{
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
+.user-label,
+.user-img {
+    border-radius: 50px;
+    max-width: 100px;
+    min-height: 100px;
 }
 
-.user-container input{
+.user-label {
+    overflow: hidden;
+    position: relative;
+}
+
+.user-imgButton {
+    background-color: #55c265;
+    border: none;
+    bottom: 0;
+    color: white;
+    cursor: pointer;
+    font-size: .8em;
+    font-weight: 500;
+    height: 25px;
+    justify-content:flex-start;
+    left: 0;
+    padding: .5;
+    position: absolute;
+    width: 100px;
+}
+
+.user-container input {
     display: none;
 }
 
-.user-container img{
-    border-radius: 50%;
-    background-color: white;
-    z-index: -1;
-}
-
-.user-img::before{
-    content: "Editar";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: 150px;
-    border: 2px solid white;
+.user-img {
     background-color: white;
 }
 
-.user-cards__title{
+.user-cards__title {
     margin-bottom: 1em;
 }
 
-.user-cards{
+.user-cards {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.user-cards__items{
+.user-cards__items {
     display: flex;
     flex-direction: column;
     gap: 4vh;
@@ -78,78 +89,78 @@
     overflow: hidden;
 }
 
-.user-cards__button{
-    width: 320px;
-    margin-bottom: 1em;
-    border: none;
+.user-cards__button {
     background-color: transparent;
+    border: none;
     color: white;
-    font-size: 1.3em;
     cursor: pointer;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+    width: 320px;
 }
 
-@media screen and (min-width:800px){
-    .user-container{
+@media screen and (min-width:800px) {
+    .user-container {
+        background-color: #303236;
+        border-radius:15px;
         display: grid;
         grid-template-columns: 350px calc(90vw - 350px);
-        border-radius:15px;
-        background-color: #303236;
         max-width: 90vw;
     }
 
-    .user-data{
+    .user-data {
+        border-radius: 0;
+        border-radius: 15px 0 0 15px;
+        box-shadow: none;
         display: grid;
         grid-template-rows: 15vh 50vh 15vh;
-        border-radius: 0;
-        min-width: 350px;
         height: 80vh;
-        box-shadow: none;
-        border-radius: 15px 0 0 15px;
         margin: 0;
+        min-width: 350px;
         padding: 2vh 0;
     }
 
-    .user-img{
-        width: 15vh;
+    .user-label {
         justify-self: center;
+        margin-top:1em;
     }
 
-    .user-component{
+    .user-component {
         display: flex;
         flex-direction: column;
         gap: 15px;
         width: 350px;
     }
 
-    .user-cards{
-        justify-content: space-between;
+    .user-cards {
         gap: 25px;
         height: 80vh;
+        justify-content: space-between;
     }
-    .user-cards__title{
+    .user-cards__title {
         margin-bottom: 0;
     }
-    .user-cards__items{
+    .user-cards__items {
+        align-items: center;
         display: flex;
         flex-direction: column;
-        align-items: center;
         gap: 3vh;
         height: 300px;
         overflow: hidden;
     }
 }
 
-@media screen and (min-width:1280px){
-    .user-cards{
+@media screen and (min-width:1280px) {
+    .user-cards {
+        align-self: flex-start;
         justify-content: space-between;
         justify-self: center;
-        align-self: flex-start;
         text-align: center;
     }
-    .user-cards__items{
+    .user-cards__items {
         display: grid;
-        grid-template-rows: repeat(4, 1fr);
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
         height: 310px;
     }
 }
