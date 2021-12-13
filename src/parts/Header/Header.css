@@ -98,8 +98,9 @@
 }
 
 .header-logIn__img{
-    max-width: 50px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
     background-color: white;
     margin-bottom: 1em;
 }
