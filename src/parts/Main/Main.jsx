@@ -3,7 +3,6 @@ import { getAuth } from 'firebase/auth'
 import { Route } from 'wouter'
 import './Main.css'
 import Card from 'component/Card/Card'
-import CardPhone from 'component/CardPhone/CardPhone'
 import LogIn from 'component/LogIn/LogIn'
 import SesionContext from 'context/sesionContext/SesionContext'
 import PopUp from 'component/PopUp/PopUp'
@@ -19,22 +18,13 @@ const Main = ({ page }) => {
   const { popUp, notify } = useContext(SesionContext)
   const auth = getAuth()
   const user = auth.currentUser
-  let screen = true
-  if (window.screen.width <= 480 || window.screen.height <= 480) screen = false
+
   return (
     <Suspense fallback={null}>
       <main className='main'>
         <Route path={`/${page}`}>
           <div className='main-card__container'>
-            {
-            screen
-              ? <Card
-                  game={page}
-                />
-              : <CardPhone
-                  game={page}
-                />
-          }
+            <Card game={page} />
           </div>
         </Route>
         <Route path='/Games/:page/:id' component={Detail} />
