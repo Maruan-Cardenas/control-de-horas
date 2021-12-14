@@ -22,3 +22,17 @@
     align-items: center;
     gap: 25px;
 }
+
+@media screen and (min-width: 800px){
+    .main-card__container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+@media screen and (min-width: 1200px){
+    .main-card__container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        }
+}
