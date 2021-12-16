@@ -51,7 +51,7 @@ const FormData = () => {
         modify={formError.img}
         value={formulario.img}
         name='img'
-        placeholder='URL de la imagen'
+        placeholder='http://www.url-de-la-imagen.com'
         onChange={handleForm}
       />
       <div className='url-or-fill '>( o )</div>
@@ -63,7 +63,6 @@ const FormData = () => {
         label='Sube una imágen'
         img={Upload}
         name='file'
-        placeholder='URL de la imagen'
         onChange={(e) => handleFile(e.target.files)}
       />
       {
@@ -101,7 +100,7 @@ const FormData = () => {
         error={notify}
         value={formulario.url}
         name='url'
-        placeholder='URL de la oferta'
+        placeholder='http://www.pagina-de-la-oferta.com'
         onChange={handleForm}
       />
 
