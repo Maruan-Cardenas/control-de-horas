@@ -38,8 +38,9 @@
 .user-label,
 .user-img {
     border-radius: 50px;
-    max-width: 100px;
-    min-height: 100px;
+    width: 100px;
+    height: 100px;
+    object-fit: fill;
 }
 
 .user-label {
