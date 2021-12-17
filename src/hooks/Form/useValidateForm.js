@@ -61,7 +61,6 @@ const useValidateForm = () => {
       if (!expReg.url.test(e.target.value)) {
         setFormulario({ ...formulario, url: e.target.value })
         setFormError({ ...formError, url: 'formError' })
-        setNotify({ text: 'La URL introducida contine un formato incorrecto', color: 'red' })
       } else {
         setFormulario({ ...formulario, url: e.target.value })
         setNotify(false)
@@ -71,7 +70,6 @@ const useValidateForm = () => {
       if (!expReg.url.test(e.target.value)) {
         setFormulario({ ...formulario, img: e.target.value })
         setFormError({ ...formError, img: 'formError' })
-        setNotify({ text: 'La URL introducida contine un formato incorrecto', color: 'red' })
       } else {
         setFormulario({ ...formulario, img: e.target.value })
         setNotify(false)

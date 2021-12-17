@@ -46,6 +46,23 @@ const FormData = () => {
         onChange={handleForm}
       />
       <Input
+        label='Tienda:'
+        name='shop'
+        modify={formError.shop}
+        value={formulario.shop}
+        placeholder='Tienda'
+        onChange={handleForm}
+      />
+      <Input
+        label='URL de la oferta:'
+        modify={formError.url}
+        error={notify}
+        value={formulario.url}
+        name='url'
+        placeholder='http://www.pagina-de-la-oferta.com'
+        onChange={handleForm}
+      />
+      <Input
         label='URL de la imagen:'
         disabled={disabledImg}
         modify={formError.img}
@@ -70,14 +87,6 @@ const FormData = () => {
           <PopUp component={<ImagePreview image={image} handleSetImgForm={handleSetImgForm} handleReset={handleReset} />} />
       }
       <Input
-        label='Tienda:'
-        name='shop'
-        modify={formError.shop}
-        value={formulario.shop}
-        placeholder='Tienda'
-        onChange={handleForm}
-      />
-      <Input
         type='text'
         label='Precio sin oferta:'
         name='previousPrice'
@@ -94,16 +103,6 @@ const FormData = () => {
         placeholder='Precio con oferta'
         onChange={handleForm}
       />
-      <Input
-        label='URL de la oferta:'
-        modify={formError.url}
-        error={notify}
-        value={formulario.url}
-        name='url'
-        placeholder='http://www.pagina-de-la-oferta.com'
-        onChange={handleForm}
-      />
-
       <Select
         name='plataform'
         modify={formError.plataform}
