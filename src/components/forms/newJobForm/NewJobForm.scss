@@ -1,8 +1,14 @@
 .form-container {
   width: 350px;
-  form{
+  form {
     display:  flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
+  }
+  input {
+    border: none;
+    border-bottom:2px solid black;
+    outline: none;
+    font-weight: bold;
   }
 }

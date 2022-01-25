@@ -1,4 +1,4 @@
-import './NewJobPage'
+import './NewJobPage.scss'
 
 import NewJobForm from 'components/forms/newJobForm/NewJobForm'
 
