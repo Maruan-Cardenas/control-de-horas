@@ -1,9 +1,8 @@
 .job-container {
   display:  flex;
-  padding: .5em 0;
+  padding: .5em;
   gap: 5px;
-  border: 2px solid black;
-  border-radius: 5px;
+  border-bottom: 2px solid black;
   div{
     font-size: .9em;
     display: flex;

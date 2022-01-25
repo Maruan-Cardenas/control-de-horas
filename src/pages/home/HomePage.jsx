@@ -1,9 +1,11 @@
+import './HomePage.scss'
+
 import JobContainer from 'components/containers/jobs/JobContainer'
-import ''
+
 const HomePage = () => {
   return (
     <main className='main-container'>
-      <JobContainer />
+      <JobContainer db='Jobs' />
     </main>
   )
 }
