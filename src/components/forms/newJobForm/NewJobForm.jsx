@@ -1,20 +1,27 @@
+import React, { useState } from 'react'
 import './NewJobForm.scss'
 
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import ObtainData from 'services/getDB/obtainData'
+import NewClientModal from 'components/modal/newClient/NewClientModal'
 
 const NewJobForm = () => {
+  const [modal, setModal] = useState(false)
+  const [jobs] = ObtainData('Clients')
   const initialValues = {
     operator: '',
     client: '',
     description: '',
     hours: ''
   }
+  const modalSwitch = () => {
+    setModal(!modal)
+  }
   return (
     <div className='form-container'>
       <Formik
         initialValues={initialValues}
         validate={values => {
-          console.log(values.operator)
           const errors = {}
           if (values.operator === 'operario' || values.operator === '') {
             errors.operator = 'Debes seleccionar tú nombre'
@@ -38,12 +45,21 @@ const NewJobForm = () => {
               <option value='Miguel Baena'>Miguel Baena</option>
               <option value='Miguel Mayo'>Miguel Mayo</option>
             </Field>
-            <ErrorMessage name='operator' component='div' />
-            <Field
-              type='client'
-              name='client'
-              placeholder='Cliente'
-            />
+            <ErrorMessage className='newJobForm-error' name='operator' component='div' />
+            <div>
+              <Field className='form-select-client' type='client' as='select' name='client'>
+                <option value='operario' default>Clientes</option>
+                {
+                jobs.map((res, index) => (
+                  <option key={index} value={res.name}>{res.name}</option>
+                ))
+                }
+              </Field>
+              <button type='button' className='button' onClick={modalSwitch}>Añadir</button>
+            </div>
+            {
+              modal && <NewClientModal modalSwitch={modalSwitch} />
+            }
             <Field
               type='description'
               name='description'
@@ -54,7 +70,7 @@ const NewJobForm = () => {
               name='hours'
               placeholder='Horas'
             />
-            <button type='submit' disabled={isSubmitting}>
+            <button className='button' type='submit' disabled={isSubmitting}>
               Submit
             </button>
           </Form>
