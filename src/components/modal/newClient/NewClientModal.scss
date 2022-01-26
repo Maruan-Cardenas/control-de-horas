@@ -1,11 +1,12 @@
 .newClient-container {
   position: absolute;
-  top: 87px;
+  top: 0;
   display:  flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: calc(100% - 87px);
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.384);
   backdrop-filter: blur(2px);
   button {
@@ -13,8 +14,6 @@
     justify-self: flex-start;
     background: transparent;
     font-size: 2em;
-  }
-  div {
-    margin-top: 50%;
+    padding: 0;
   }
 }

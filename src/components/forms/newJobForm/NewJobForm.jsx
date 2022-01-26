@@ -4,21 +4,27 @@ import './NewJobForm.scss'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import ObtainData from 'services/getDB/obtainData'
 import NewClientModal from 'components/modal/newClient/NewClientModal'
+import SetDataDB from 'services/setDB/setDB'
 
 const NewJobForm = () => {
+  const [setDataDB] = SetDataDB()
   const [modal, setModal] = useState(false)
   const [jobs] = ObtainData('Clients')
   const initialValues = {
     operator: '',
     client: '',
     description: '',
-    hours: ''
+    hours: '',
+    jobs: 'Jobs'
   }
   const modalSwitch = () => {
     setModal(!modal)
   }
   return (
     <div className='form-container'>
+      {
+        modal && <NewClientModal modalSwitch={modalSwitch} />
+      }
       <Formik
         initialValues={initialValues}
         validate={values => {
@@ -30,7 +36,7 @@ const NewJobForm = () => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            console.log(values)
+            setDataDB({ ...values })
             setSubmitting(false)
           }, 400)
         }}
@@ -57,9 +63,6 @@ const NewJobForm = () => {
               </Field>
               <button type='button' className='button' onClick={modalSwitch}>Añadir</button>
             </div>
-            {
-              modal && <NewClientModal modalSwitch={modalSwitch} />
-            }
             <Field
               type='description'
               name='description'
