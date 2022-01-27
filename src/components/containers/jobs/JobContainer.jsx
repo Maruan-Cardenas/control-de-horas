@@ -4,6 +4,14 @@ import './JobContainer.scss'
 
 const JobContainer = ({ db }) => {
   const [jobs] = ObtainData(db)
+  let sume
+  const sumeTime = () => {
+    jobs.forEach(res => (
+      sume += res.hours
+    ))
+  }
+  sumeTime()
+  console.log(sume)
   return (
     <>
       <div className='job-container jobContainer-container'>
@@ -14,7 +22,9 @@ const JobContainer = ({ db }) => {
       </div>
       {
         jobs.map((res, index) => (
-          <Job key={index} db={res} />
+          <div key={index}>
+            <Job key={index} db={res} />
+          </div>
         ))
       }
     </>

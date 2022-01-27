@@ -17,19 +17,28 @@
   input {
     width: 350px; 
   }
-  div {
+  div.form-clients, div.form-time {
     width: 100%;
   }
   select {
     width: 100%;
   }
-  select.form-select-client {
+  .form-select-client {
     margin-right: .5em;
     width: 67%;
+  }
+  input.form-select-client {
+    height: 41px;
   }
   button {
     width: 30%;
   }
+  div.form-time {
+    input {
+      width: 30%;
+    }
+  }
+
   .newJobForm-error {
     color: red;
     text-align: center;

@@ -11,14 +11,18 @@ const SetDataDB = () => {
           client: dataDB.client,
           operator: dataDB.operator,
           description: dataDB.description,
-          hours: dataDB.hours
+          hours: dataDB.hours,
+          minuts: dataDB.minuts
         })
+        console.log(dataDB)
       })()
-    } else if (dataDB.clients === 'Clients') {
+    }
+    if (dataDB.newClient === 'Clients') {
       (async () => {
-        await addDoc(collection(db, 'Clients'), {
-          name: dataDB.name
+        await addDoc(collection(db, dataDB.newClient), {
+          client: dataDB.client
         })
+        console.log(dataDB)
       })()
     }
   }, [dataDB])

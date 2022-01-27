@@ -2,31 +2,36 @@ import React, { useState } from 'react'
 import './NewJobForm.scss'
 
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import ObtainData from 'services/getDB/obtainData'
-import NewClientModal from 'components/modal/newClient/NewClientModal'
+import ClientsList from '../formComponents/ClientList'
+import NewClient from '../formComponents/NewClient'
+
 import SetDataDB from 'services/setDB/setDB'
+import { operators } from 'array/operatos.array'
+
+import { useNavigate } from 'react-router-dom'
 
 const NewJobForm = () => {
+  const navigate = useNavigate()
   const [setDataDB] = SetDataDB()
   const [modal, setModal] = useState(false)
-  const [jobs] = ObtainData('Clients')
-  const initialValues = {
+
+  const modalSwitch = () => {
+    setModal(!modal)
+  }
+
+  const initialValuesNewJob = {
     operator: '',
     client: '',
     description: '',
     hours: '',
+    minuts: '',
     jobs: 'Jobs'
   }
-  const modalSwitch = () => {
-    setModal(!modal)
-  }
+
   return (
     <div className='form-container'>
-      {
-        modal && <NewClientModal modalSwitch={modalSwitch} />
-      }
       <Formik
-        initialValues={initialValues}
+        initialValues={initialValuesNewJob}
         validate={values => {
           const errors = {}
           if (values.operator === 'operario' || values.operator === '') {
@@ -34,33 +39,31 @@ const NewJobForm = () => {
           }
           return errors
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={values => {
+          const CLIENT = modal ? 'Clients' : ''
+          setDataDB({ ...values, newClient: CLIENT })
           setTimeout(() => {
-            setDataDB({ ...values })
-            setSubmitting(false)
-          }, 400)
+            navigate('/')
+          }, 1000)
         }}
       >
-        {({ isSubmitting, errors }) => (
+        {({ isSubmitting }) => (
           <Form>
             <Field type='operator' as='select' name='operator'>
               <option value='operario' default>Operario</option>
-              <option value='Manuel Campos'>Manuel Campos</option>
-              <option value='Antonio Valera'>Antonio Valera</option>
-              <option value='Antonio Jesús'>Antonio Jesús</option>
-              <option value='Miguel Baena'>Miguel Baena</option>
-              <option value='Miguel Mayo'>Miguel Mayo</option>
+              {
+                operators.map((res, index) => (
+                  <option key={index} value={res}>{res}</option>
+                ))
+              }
             </Field>
             <ErrorMessage className='newJobForm-error' name='operator' component='div' />
-            <div>
-              <Field className='form-select-client' type='client' as='select' name='client'>
-                <option value='operario' default>Clientes</option>
-                {
-                jobs.map((res, index) => (
-                  <option key={index} value={res.name}>{res.name}</option>
-                ))
-                }
-              </Field>
+            <div className='form-clients'>
+              {
+                modal
+                  ? <NewClient />
+                  : <ClientsList />
+              }
               <button type='button' className='button' onClick={modalSwitch}>Añadir</button>
             </div>
             <Field
@@ -68,11 +71,20 @@ const NewJobForm = () => {
               name='description'
               placeholder='Descripción'
             />
-            <Field
-              type='number'
-              name='hours'
-              placeholder='Horas'
-            />
+            <div className='form-time'>
+              <Field
+                type='number'
+                name='hours'
+                placeholder='Horas'
+              />
+              <span>:</span>
+              <Field
+                className='form-minuts'
+                type='number'
+                name='minuts'
+                placeholder='Minutos'
+              />
+            </div>
             <button className='button' type='submit' disabled={isSubmitting}>
               Submit
             </button>
