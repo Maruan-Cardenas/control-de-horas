@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 const SetDataDB = () => {
   const [dataDB, setDataDB] = useState({})
+  const seconds = (dataDB.hours * 3600) + (dataDB.minuts * 60)
   useEffect(() => {
     if (dataDB.jobs === 'Jobs') {
       (async () => {
@@ -11,8 +12,7 @@ const SetDataDB = () => {
           client: dataDB.client,
           operator: dataDB.operator,
           description: dataDB.description,
-          hours: dataDB.hours,
-          minuts: dataDB.minuts
+          seconds: seconds
         })
         console.log(dataDB)
       })()
@@ -25,7 +25,7 @@ const SetDataDB = () => {
         console.log(dataDB)
       })()
     }
-  }, [dataDB])
+  }, [dataDB, seconds])
   return [setDataDB]
 }
 
