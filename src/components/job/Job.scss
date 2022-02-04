@@ -1,16 +1,15 @@
+.job-link {
+  text-decoration: none;
+  color: black;
+}
+
 .job-container {
-  display:  flex;
-  padding: .5em;
-  gap: 5px;
-  border-bottom: 2px solid black;
-  div{
-    font-size: .9em;
-    display: flex;
-    width: 95px;
-    justify-content: center;
-    align-items: center;
-  }
-  .job-hora{
-    width: 35px
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: .5em 0;
+  div {
+    justify-self: center;
+    align-self: center;
+    font-size: .8em;
   }
 }
