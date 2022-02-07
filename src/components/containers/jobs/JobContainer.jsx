@@ -7,7 +7,7 @@ const JobContainer = ({ db }) => {
   let sume
   const sumeTime = () => {
     jobs.forEach(res => (
-      sume += res.hours
+    +  sume += res.hours
     ))
   }
   sumeTime()
