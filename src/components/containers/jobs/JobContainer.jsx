@@ -4,21 +4,19 @@ import './JobContainer.scss'
 
 const JobContainer = ({ db }) => {
   const [jobs] = ObtainData(db)
-  let sume
-  const sumeTime = () => {
-    jobs.forEach(res => (
-    +  sume += res.hours
-    ))
-  }
-  sumeTime()
-  console.log(sume)
+
+  const sumaHours = jobs.map(res => res.seconds).reduce((prev, cur) => prev + cur, 0)
+  const Hours = Math.floor(sumaHours / 3600)
+  const Minuts = Math.floor((sumaHours / 60) % 60)
+  console.log(Hours + ':' + Minuts)
+
   return (
     <>
       <div className='job-container jobContainer-container'>
         <div>Operario</div>
         <div>Cliente</div>
         <div>Concepto</div>
-        <div className='job-hora'>Horas</div>
+        <div className='job-hora'>Horas {Hours + ':' + (Minuts < 10 ? '0' + Minuts : Minuts)}</div>
       </div>
       {
         jobs.map((res, index) => (
