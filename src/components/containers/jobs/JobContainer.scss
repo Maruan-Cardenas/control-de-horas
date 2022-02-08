@@ -1,3 +1,20 @@
-.jobContainer-container{
-  border: none;
+.jobContainer-container, .jobContainer-total{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: .9em;
+  font-weight: bold;
+  div {
+    justify-self: center;
+  }
+}
+.jobContainer-total {
+  div {
+    justify-self: center;
+  }
+  div.hours {
+    grid-column: 4/5;
+  }
+  div.text {
+    grid-column: 1/4
+  }
 }
