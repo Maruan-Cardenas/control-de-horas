@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { collection, getDocs, query, limit } from 'firebase/firestore'
+// import { collection, getDocs, query, limit } from 'firebase/firestore'
+import { collection, query, onSnapshot, orderBy } from 'firebase/firestore'
 import db from 'services/db.config'
 
 const GetDB = (jobDb) => {
@@ -7,9 +8,11 @@ const GetDB = (jobDb) => {
   const [job, setJob] = useState([])
   useEffect(() => {
     (async () => {
-      const querySnapshot = await getDocs(query(collection(db, jobDb), limit(10)))
-      setJob(querySnapshot)
-      setLoadig(true)
+      const q = query(collection(db, jobDb), orderBy('FireDate', 'desc'))
+      onSnapshot(q, (querySnapshot) => {
+        setJob(querySnapshot)
+        setLoadig(true)
+      })
     })()
   }, [jobDb, setJob])
 

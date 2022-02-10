@@ -38,9 +38,15 @@
       width: 30%;
     }
   }
-
   .newJobForm-error {
     color: red;
     text-align: center;
+  }
+  .newJobForm-removeClientButton {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-weight: bold;
+    width: 20px;
   }
 }

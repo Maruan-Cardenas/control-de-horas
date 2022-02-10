@@ -3,8 +3,8 @@ import { useState } from 'react'
 import './JobContainer.scss'
 
 import Job from 'components/job/Job'
-import ObtainData from 'services/getDB/obtainData'
 
+import ObtainData from 'services/getDB/obtainData'
 const JobContainer = ({ db }) => {
   const [operatorName, setOperatorName] = useState('client')
   const [jobs] = ObtainData(db)
@@ -32,8 +32,9 @@ const JobContainer = ({ db }) => {
             }
           </select>
         </div>
-        <div>Concepto</div>
-        <div className='job-hora'>Horas</div>
+        <div>Tiempo</div>
+        <div className='job-hora'>Eliminar</div>
+        <div>Editar</div>
       </div>
       {
         operatorName === 'client' && jobs.map((res, index) => (

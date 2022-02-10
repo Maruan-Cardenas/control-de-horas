@@ -1,24 +1,74 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+
 import './Job.scss'
-import removeDB from 'services/removeDB/removeDB'
+// Images
 import remove from 'images/remove.png'
+// logic component
+import removeDB from 'services/removeDB/removeDB'
+import updateDB from 'services/updateDB/updateDB'
+// routes
+import { Link, useNavigate } from 'react-router-dom'
+import ModalUpdateForm from 'components/forms/modalUpdateForm/ModalUpdateForm'
 
 const Job = ({ db }) => {
+  const [modalForm, setModalForm] = useState(false)
+
+  const navigate = useNavigate()
+
   const { operator, client, seconds, id } = db
 
   const shortOperator = operator && operator.slice(0, 7)
   const shortClient = client && client.slice(0, 7)
+
   const hours = Math.floor(seconds / 3600)
   const minuts = Math.floor((seconds / 60) % 60)
+
+  const handleRemove = () => {
+    removeDB(id, 'Jobs')
+    setTimeout(() => {
+      navigate('/')
+    }, 1000)
+  }
+
+  const handleModal = () => {
+    setModalForm(!modalForm)
+  }
+
+  const handleUpdate = () => {
+    updateDB(id, 'Jobs')
+    setTimeout(() => {
+      navigate('/')
+    }, 1000)
+  }
+  console.log(handleUpdate)
   return (
-    <Link className='job-link' to={`/detail/${id}`}>
+    <>
       <div className='job-container'>
-        <div>{operator.length < 7 ? operator : shortOperator + '...'}</div>
-        <div>{client.length < 7 ? client : shortClient + '...'}</div>
-        <div className='job-hora'>{`${hours}:${minuts < 10 ? '0' + minuts : minuts}`}</div>
-        <div><button onClick={() => removeDB(id, 'Jobs')}><img src={remove} alt='remove' /></button></div>
+        <Link className='job-link' to={`/detail/${id}`}>
+          <div>
+            {operator.length < 7 ? operator : shortOperator + '...'}
+          </div>
+          <div>
+            {client.length < 7 ? client : shortClient + '...'}
+          </div>
+          <div className='job-hora'>
+            {`${hours}:${minuts < 10 ? '0' + minuts : minuts}`}
+          </div>
+        </Link>
+        <div>
+          <button onClick={handleRemove}>
+            <img src={remove} alt='remove' />
+          </button>
+        </div>
+        <div>
+          <button onClick={handleModal}>edit</button>
+        </div>
       </div>
-    </Link>
+
+      {
+      modalForm && <ModalUpdateForm />
+    }
+    </>
   )
 }
 

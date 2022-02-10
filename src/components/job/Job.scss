@@ -1,12 +1,16 @@
-.job-link {
-  text-decoration: none;
-  color: black;
-}
+
 
 .job-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   padding: .5em 0;
+  .job-link {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-decoration: none;
+  color: black;
+  grid-column: 1/3;
+  }
   div {
     justify-self: center;
     align-self: center;
