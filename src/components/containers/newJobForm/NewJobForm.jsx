@@ -5,7 +5,7 @@ import SetDataDB from 'services/setDB/setDB'
 
 import ObtainData from 'services/getDB/obtainData'
 import removeDB from 'services/removeDB/removeDB'
-import DataForm from '../formComponents/DataForm'
+import DataForm from '../../forms/formComponents/DataForm'
 
 const NewJobForm = () => {
   const [setDataDB] = SetDataDB()

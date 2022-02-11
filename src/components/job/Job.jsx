@@ -5,7 +5,6 @@ import './Job.scss'
 import remove from 'images/remove.png'
 // logic component
 import removeDB from 'services/removeDB/removeDB'
-import updateDB from 'services/updateDB/updateDB'
 // routes
 import { Link, useNavigate } from 'react-router-dom'
 import ModalUpdateForm from 'components/forms/modalUpdateForm/ModalUpdateForm'
@@ -33,14 +32,6 @@ const Job = ({ db }) => {
   const handleModal = () => {
     setModalForm(!modalForm)
   }
-
-  const handleUpdate = () => {
-    updateDB(id, 'Jobs')
-    setTimeout(() => {
-      navigate('/')
-    }, 1000)
-  }
-  console.log(handleUpdate)
   return (
     <>
       <div className='job-container'>
@@ -66,7 +57,7 @@ const Job = ({ db }) => {
       </div>
 
       {
-      modalForm && <ModalUpdateForm />
+      modalForm && <ModalUpdateForm id={id} />
     }
     </>
   )

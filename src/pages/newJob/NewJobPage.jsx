@@ -1,6 +1,6 @@
 import './NewJobPage.scss'
 
-import NewJobForm from 'components/forms/newJobForm/NewJobForm'
+import NewJobForm from 'components/containers/newJobForm/NewJobForm'
 
 const NewJobPage = () => {
   return (
