@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './Job.scss'
 // Images
 import remove from 'images/remove.png'
+import edit from 'images/edit.png'
 // logic component
 import removeDB from 'services/removeDB/removeDB'
 // routes
@@ -52,12 +53,14 @@ const Job = ({ db }) => {
           </button>
         </div>
         <div>
-          <button onClick={handleModal}>edit</button>
+          <button onClick={handleModal}>
+            <img src={edit} alt='edit' />
+          </button>
         </div>
       </div>
 
       {
-      modalForm && <ModalUpdateForm id={id} />
+      modalForm && <ModalUpdateForm id={id} setModalForm={setModalForm} />
     }
     </>
   )

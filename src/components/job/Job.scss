@@ -4,23 +4,29 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   padding: .5em 0;
+  background-color: rgb(221, 8, 8);
+  margin: .5em 0;
+  border-radius: 5px;
   .job-link {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-decoration: none;
-  color: black;
+  color: white;
+  font-weight: bold;
   grid-column: 1/4;
   }
   div {
     justify-self: center;
     align-self: center;
     font-size: .8em;
+    overflow-wrap:normal;
   }
   button {
     background-color: transparent;
     border: none;
     img {
-      max-width: 30px;
+      cursor: pointer;
+      max-width: 25px;
     }
   }
 }

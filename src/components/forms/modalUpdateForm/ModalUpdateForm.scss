@@ -1,3 +1,15 @@
 .modalUpdateForm-container {
-  position: absolute;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 1em 0;
+    div {
+      display: flex;
+    }
+    input {
+      border: none;
+      border-bottom: 2px solid black;
+    }
+  }
 }
