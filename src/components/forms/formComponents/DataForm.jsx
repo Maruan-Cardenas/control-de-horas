@@ -1,15 +1,13 @@
 // Components
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { Formik, Form, Field } from 'formik'
 import ClientsList from '../formComponents/ClientList'
 import NewClient from '../formComponents/NewClient'
 // Routes
 import { useNavigate } from 'react-router-dom'
 // Data
-import ObtainData from 'services/getDB/obtainData'
 
 const DataForm = ({ initialValues, setDataDB, newClient, modalSwitch }) => {
   const navigate = useNavigate()
-  const [jobsOperator] = ObtainData('Operators')
   return (
     <div className='form-container'>
       <Formik
@@ -31,15 +29,6 @@ const DataForm = ({ initialValues, setDataDB, newClient, modalSwitch }) => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Field type='operator' as='select' name='operator'>
-              <option value='operario' default>Operario</option>
-              {
-                jobsOperator.map((res, index) => (
-                  <option key={index} value={res.operator}>{res.operator}</option>
-                ))
-              }
-            </Field>
-            <ErrorMessage className='newJobForm-error' name='operator' component='div' />
             <div className='form-clients'>
               {
                 newClient

@@ -18,7 +18,7 @@ const NewJobForm = () => {
   }
 
   const initialValuesNewJob = {
-    operator: '',
+    operator: user.displayName,
     client: '',
     description: '',
     hours: '',

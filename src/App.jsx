@@ -12,7 +12,7 @@ import DetailPage from 'pages/detail/DetailPage.jsx'
 import SignInPage from 'pages/signIn/SignInPage.jsx'
 
 import SessionContext from 'context/context.config'
-import UpdateUser from 'components/forms/formComponents/UpdateUser'
+import UserPage from 'pages/user/UserPage'
 
 function App () {
   const { user } = useContext(SessionContext)
@@ -24,8 +24,8 @@ function App () {
         <Route path='/' element={user.uid ? <HomePage /> : <SignInPage />} />
         <Route path='/newjob' element={<NewJobPage />} />
         <Route path='/detail/:id' element={<DetailPage />} />
+        <Route path='/user' element={<UserPage />} />
       </Routes>
-      <UpdateUser />
     </>
   )
 }
