@@ -1,23 +1,31 @@
 import './normalize.css'
+
+import { useContext } from 'react'
+
 import { Routes, Route } from 'react-router-dom'
-import HomePage from 'pages/home/HomePage.jsx'
+
 import Header from 'components/header/Header.jsx'
+
+import HomePage from 'pages/home/HomePage.jsx'
 import NewJobPage from 'pages/newJob/NewJobPage.jsx'
 import DetailPage from 'pages/detail/DetailPage.jsx'
 import SignInPage from 'pages/signIn/SignInPage.jsx'
-import Session from 'services/session/Session.js'
+
+import SessionContext from 'context/context.config'
+import UpdateUser from 'components/forms/formComponents/UpdateUser'
 
 function App () {
-  const [session] = Session()
-  console.log(session)
+  const { user } = useContext(SessionContext)
+  console.log(user)
   return (
     <>
       <Header />
       <Routes>
-        <Route path='/' element={session ? <HomePage /> : <SignInPage />} />
+        <Route path='/' element={user.uid ? <HomePage /> : <SignInPage />} />
         <Route path='/newjob' element={<NewJobPage />} />
         <Route path='/detail/:id' element={<DetailPage />} />
       </Routes>
+      <UpdateUser />
     </>
   )
 }

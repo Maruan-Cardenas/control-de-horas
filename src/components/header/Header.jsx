@@ -4,7 +4,10 @@ import logo from 'images/logo.png'
 import { Link } from 'react-router-dom'
 import SignOutComponent from 'components/signOut/SignOutComponent'
 
+import Session from 'services/session/Session'
+
 const Header = () => {
+  Session()
   return (
     <header className='header-container'>
       <Link to='/'>

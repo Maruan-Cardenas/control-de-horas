@@ -1,21 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import SessionContext from 'context/context.config'
 const Session = () => {
+  const { setUser } = useContext(SessionContext)
   const auth = getAuth()
   const navigate = useNavigate()
-  const [session, setSession] = useState()
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid
-        setSession(uid)
-        return uid
+        setUser(user)
       } else {
         navigate('/')
       }
     })
-  }, [auth, navigate])
-  return [session]
+  }, [auth, navigate, setUser])
 }
 export default Session

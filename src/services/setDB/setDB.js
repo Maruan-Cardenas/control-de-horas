@@ -19,7 +19,8 @@ const SetDataDB = () => {
       description: dataDB.description,
       seconds: seconds,
       FireDate: Timestamp.fromDate(new Date(FireDateNow)),
-      date: DateNow
+      date: DateNow,
+      uid: dataDB.uid
     }
 
     const clientData = {
