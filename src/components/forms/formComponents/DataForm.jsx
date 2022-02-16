@@ -5,10 +5,11 @@ import NewClient from '../formComponents/NewClient'
 // Routes
 import { useNavigate } from 'react-router-dom'
 // Data
-import { operators } from 'array/operatos.array'
+import ObtainData from 'services/getDB/obtainData'
 
 const DataForm = ({ initialValues, setDataDB, newClient, modalSwitch }) => {
   const navigate = useNavigate()
+  const [jobsOperator] = ObtainData('Operators')
   return (
     <div className='form-container'>
       <Formik
@@ -33,8 +34,8 @@ const DataForm = ({ initialValues, setDataDB, newClient, modalSwitch }) => {
             <Field type='operator' as='select' name='operator'>
               <option value='operario' default>Operario</option>
               {
-                operators.map((res, index) => (
-                  <option key={index} value={res}>{res}</option>
+                jobsOperator.map((res, index) => (
+                  <option key={index} value={res.operator}>{res.operator}</option>
                 ))
               }
             </Field>

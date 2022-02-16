@@ -17,9 +17,6 @@ const Job = ({ db }) => {
 
   const { operator, client, seconds, id } = db
 
-  const shortOperator = operator && operator.slice(0, 7)
-  const shortClient = client && client.slice(0, 7)
-
   const hours = Math.floor(seconds / 3600)
   const minuts = Math.floor((seconds / 60) % 60)
 
@@ -38,12 +35,12 @@ const Job = ({ db }) => {
       <div className='job-container'>
         <Link className='job-link' to={`/detail/${id}`}>
           <div>
-            {operator.length < 7 ? operator : shortOperator + '...'}
+            {operator}
           </div>
           <div>
-            {client.length < 7 ? client : shortClient + '...'}
+            {client}
           </div>
-          <div className='job-hora'>
+          <div className='job-hours'>
             {`${hours}:${minuts < 10 ? '0' + minuts : minuts}`}
           </div>
         </Link>

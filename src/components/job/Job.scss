@@ -2,31 +2,35 @@
 
 .job-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 120px 120px 50px 30px 30px;
   padding: .5em 0;
   background-color: rgb(221, 8, 8);
   margin: .5em 0;
   border-radius: 5px;
   .job-link {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 120px 120px 50px;
   text-decoration: none;
   color: white;
   font-weight: bold;
   grid-column: 1/4;
   }
   div {
-    justify-self: center;
+    justify-self: left;
+    padding: .1em;
     align-self: center;
     font-size: .8em;
     overflow-wrap:normal;
+  }
+  div.job-hours {
+    justify-self: center
   }
   button {
     background-color: transparent;
     border: none;
     img {
       cursor: pointer;
-      max-width: 25px;
+      max-width: 20px;
     }
   }
 }
