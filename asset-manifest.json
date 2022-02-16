@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/control-de-horas/static/css/main.4103e679.css",
+    "main.js": "/control-de-horas/static/js/main.eb706edd.js",
+    "static/js/787.1255ce7b.chunk.js": "/control-de-horas/static/js/787.1255ce7b.chunk.js",
+    "static/media/logo.png": "/control-de-horas/static/media/logo.e871e3d15764a4ac8560.png",
+    "static/media/remove.png": "/control-de-horas/static/media/remove.ad29186def4b69f56b08.png",
+    "index.html": "/control-de-horas/index.html",
+    "main.4103e679.css.map": "/control-de-horas/static/css/main.4103e679.css.map",
+    "main.eb706edd.js.map": "/control-de-horas/static/js/main.eb706edd.js.map",
+    "787.1255ce7b.chunk.js.map": "/control-de-horas/static/js/787.1255ce7b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4103e679.css",
+    "static/js/main.eb706edd.js"
+  ]
+}
