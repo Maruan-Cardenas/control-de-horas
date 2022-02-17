@@ -36,7 +36,6 @@ const SetDataDB = () => {
     if (dataDB.newClient === 'Clients') {
       (async () => {
         await addDoc(collection(db, 'Clients'), clientData)
-        console.log(dataDB)
       })()
     }
   }, [dataDB, seconds, DateNow, FireDateNow])

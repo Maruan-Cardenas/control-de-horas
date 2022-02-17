@@ -1,7 +1,7 @@
 {
   "homepage": "https://maruan-cardenas.github.io/control-de-horas",
-  "name": "games-offerts",
-  "version": "0.1.0",
+  "name": "control-de-horas",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "5.11.4",

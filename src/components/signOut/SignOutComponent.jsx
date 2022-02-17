@@ -1,3 +1,4 @@
+import './SignOutComponent.scss'
 import signout from 'services/signOut/signOut'
 const SignOutComponent = () => {
   const handleClick = () => {
@@ -7,7 +8,7 @@ const SignOutComponent = () => {
     }, 1000)
   }
   return (
-    <button onClick={handleClick}>
+    <button onClick={handleClick} className='signOut-button'>
       Cerrar Sesión
     </button>
   )
