@@ -1,8 +1,10 @@
+import './UserPage.scss'
 import User from 'components/user/User'
 
-const UserPage = () => {
+const UserPage = ({ user }) => {
   return (
-    <main>
+    <main className='userPage-container'>
+      <h2>Dashboar de {user}</h2>
       <User />
     </main>
   )

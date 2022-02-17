@@ -1,16 +1,21 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 import './Job.scss'
 // Images
 import remove from 'images/remove.png'
 import edit from 'images/edit.png'
+import prohibited from 'images/prohibited.png'
 // logic component
 import removeDB from 'services/removeDB/removeDB'
 // routes
 import { Link, useNavigate } from 'react-router-dom'
 import ModalUpdateForm from 'components/forms/modalUpdateForm/ModalUpdateForm'
 
+import SessionContext from 'context/context.config'
+
 const Job = ({ db }) => {
+  const { user } = useContext(SessionContext)
+
   const [modalForm, setModalForm] = useState(false)
 
   const navigate = useNavigate()
@@ -45,14 +50,26 @@ const Job = ({ db }) => {
           </div>
         </Link>
         <div>
-          <button onClick={handleRemove}>
-            <img src={remove} alt='remove' />
-          </button>
+          {
+            (user.displayName === operator || user.displayName === 'Manuel Campos' || user.displayName === 'Maruan')
+              ? (
+                <button onClick={handleRemove}>
+                  <img src={remove} alt='remove' />
+                </button>
+                )
+              : <img src={prohibited} alt='Sin permisos' />
+          }
         </div>
         <div>
-          <button onClick={handleModal}>
-            <img src={edit} alt='edit' />
-          </button>
+          {
+            (user.displayName === operator || user.displayName === 'Manuel Campos' || user.displayName === 'Maruan')
+              ? (
+                <button onClick={handleModal}>
+                  <img src={edit} alt='remove' />
+                </button>
+                )
+              : <img src={prohibited} alt='Sin permisos' />
+          }
         </div>
       </div>
 

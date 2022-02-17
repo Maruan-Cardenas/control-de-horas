@@ -24,7 +24,7 @@ function App () {
         <Route path='/' element={user.uid ? <HomePage /> : <SignInPage />} />
         <Route path='/newjob' element={<NewJobPage />} />
         <Route path='/detail/:id' element={<DetailPage />} />
-        <Route path='/user' element={<UserPage />} />
+        <Route path='/user' element={<UserPage user={user.displayName} />} />
       </Routes>
     </>
   )

@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseApp = initializeApp({
-  apiKey: 'AIzaSyDxj3i4wwu8B_yLiIRg8FkGgfi0hlvJFPk',
-  authDomain: 'control-de-horas-8f725.firebaseapp.com',
-  projectId: 'control-de-horas-8f725',
-  storageBucket: 'control-de-horas-8f725.appspot.com',
-  messagingSenderId: '877631801030',
-  appId: '1:877631801030:web:da4e9017fc1829fd5eb9c7'
+  apiKey: 'AIzaSyCnnMhMP8ETo9sCEDRu5Hut3bMqnz4twVk',
+  authDomain: 'talleres-puente-sur.firebaseapp.com',
+  projectId: 'talleres-puente-sur',
+  storageBucket: 'talleres-puente-sur.appspot.com',
+  messagingSenderId: '669153190611',
+  appId: '1:669153190611:web:cc197cace87fe8f8aa6a26'
 })
 const db = getFirestore(firebaseApp)
 
