@@ -16,7 +16,6 @@ import UserPage from 'pages/user/UserPage'
 
 function App () {
   const { user } = useContext(SessionContext)
-  console.log(user)
   return (
     <>
       <Header />

@@ -28,10 +28,10 @@ const ModalUpdateForm = ({ id, setModalForm }) => {
   }
 
   const initialUpdateData = {
-    client: '',
-    description: '',
-    hours: '',
-    minuts: '',
+    client,
+    description,
+    hours,
+    minuts,
     send: true
   }
 
@@ -39,13 +39,6 @@ const ModalUpdateForm = ({ id, setModalForm }) => {
     <div className='modalUpdateForm-container'>
       <Formik
         initialValues={initialUpdateData}
-        validate={values => {
-          const errors = {}
-          if (values.operator === 'operario' || values.operator === '') {
-            errors.operator = 'Debes seleccionar tú nombre'
-          }
-          return errors
-        }}
         onSubmit={values => {
           newClient && setDataDB({ ...values, newClient: 'Clients' })
           setUpdateData({ ...values })
@@ -65,20 +58,17 @@ const ModalUpdateForm = ({ id, setModalForm }) => {
             <Field
               type='description'
               name='description'
-              placeholder={description}
             />
             <div className='form-time'>
               <Field
                 type='number'
                 name='hours'
-                placeholder={hours}
               />
               <span>:</span>
               <Field
                 className='form-minuts'
                 type='number'
                 name='minuts'
-                placeholder={minuts}
               />
             </div>
             <button className='button' type='submit' disabled={isSubmitting}>
