@@ -15,8 +15,12 @@ const Header = () => {
       <Link to='/'>
         <img src={logo} alt='Talleres Puente Sur' />
       </Link>
-      <Link to='/newjob'>Nuevo Trabajo</Link>
-      <Link to='/user'>{user.displayName}</Link>
+      {
+        user.uid && <Link to='/newjob'>Nuevo Trabajo</Link>
+      }
+      {
+        user.uid && <Link to='/user'>{user.displayName}</Link>
+      }
     </header>
   )
 }

@@ -1,10 +1,11 @@
+import './SignInPage.scss'
 import SignInForm from 'components/forms/formComponents/SignInForm'
 
 const SignInPage = () => {
   return (
-    <div>
+    <main className='signIn-container'>
       <SignInForm />
-    </div>
+    </main>
   )
 }
 
