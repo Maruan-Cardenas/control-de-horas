@@ -1,4 +1,5 @@
 import './normalize.css'
+import './App.scss'
 
 import { useContext } from 'react'
 
@@ -16,17 +17,42 @@ import UserPage from 'pages/user/UserPage'
 
 function App () {
   const { user } = useContext(SessionContext)
-  return (
-    <>
-      <Header />
-      <Routes>
-        <Route path='/' element={user.uid ? <HomePage /> : <SignInPage />} />
-        <Route path='/newjob' element={<NewJobPage />} />
-        <Route path='/detail/:id' element={<DetailPage />} />
-        <Route path='/user' element={<UserPage user={user.displayName} />} />
-      </Routes>
-    </>
-  )
+  console.log(window.screen.width)
+  if (window.screen.width < 750) {
+    return (
+      <>
+        <Header />
+        <Routes>
+          <Route path='/' element={user.uid ? <HomePage /> : <SignInPage />} />
+          <Route path='/newjob' element={<NewJobPage />} />
+          <Route path='/detail/:id' element={<DetailPage />} />
+          <Route path='/user' element={<UserPage user={user.displayName} />} />
+        </Routes>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Header />
+        <Routes>
+          <Route
+            path='/' element={
+              user.uid
+                ? (
+                  <div className='app-desktopSreen'>
+                    <NewJobPage />
+                    <HomePage />
+                  </div>
+                  )
+                : <SignInPage />
+}
+          />
+          <Route path='/detail/:id' element={<DetailPage />} />
+          <Route path='/user' element={<UserPage user={user.displayName} />} />
+        </Routes>
+      </>
+    )
+  }
 }
 
 export default App
