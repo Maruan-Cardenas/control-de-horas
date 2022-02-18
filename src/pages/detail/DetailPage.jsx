@@ -1,3 +1,5 @@
+import './DetailPage.scss'
+
 import Detail from 'components/detail/Detail'
 import React from 'react'
 
@@ -12,9 +14,9 @@ const DetailPage = () => {
   const idJobs = jobs.find(job => job.id === id)
 
   return (
-    <div>
+    <main className='detailPage-container'>
       <Detail idJobs={idJobs} />
-    </div>
+    </main>
   )
 }
 
