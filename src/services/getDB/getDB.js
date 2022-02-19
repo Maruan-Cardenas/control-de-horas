@@ -7,13 +7,15 @@ const GetDB = (jobDb) => {
   const [loading, setLoadig] = useState(false)
   const [job, setJob] = useState([])
   useEffect(() => {
+    let unsub
     (async () => {
       const q = query(collection(db, jobDb), orderBy('FireDate', 'desc'))
-      onSnapshot(q, (querySnapshot) => {
+      unsub = onSnapshot(q, (querySnapshot) => {
         setJob(querySnapshot)
         setLoadig(true)
       })
     })()
+    return () => unsub()
   }, [jobDb, setJob])
 
   return [job, loading]

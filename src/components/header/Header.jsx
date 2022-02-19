@@ -9,7 +9,6 @@ import SessionContext from 'context/context.config'
 const Header = () => {
   const { user } = useContext(SessionContext)
   Session()
-  console.log(user)
   return (
     <header className='header-container'>
       <Link to='/'>
