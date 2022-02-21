@@ -1,20 +1,4 @@
-.header-desktop {
-  width: 100%;
-  display:  flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1em 0;
-  border-bottom: 3px solid red;
-  img{
-    max-width: 100px;
-  }
-  a{
-    text-decoration: none;
-    color: black;
-  }
-}
-
-.header-phone {
+.header {
   position: fixed;
   background-color: white;
   bottom: 0;
@@ -24,6 +8,12 @@
   align-items: center;
   padding: .5em 0;
   border-top: 5px solid red;
+  @media screen and (min-width: 480px) {
+    border-top: none;
+    border-bottom: 2px solid red;
+    bottom: auto;
+    top: 0;
+  }
   img{
     max-width: 100px;
   }

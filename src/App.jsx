@@ -19,9 +19,7 @@ function App () {
   const { user } = useContext(SessionContext)
   return (
     <>
-      {
-        window.screen.width > 480 && <Header />
-      }
+      <Header />
       <Routes>
         <Route path='/' element={user.uid ? <HomePage /> : <SignInPage />} />
         <Route path='/newjob' element={<NewJobPage />} />
@@ -30,9 +28,6 @@ function App () {
       </Routes>
       {
         user.uid && <NewJobButton />
-      }
-      {
-        window.screen.width < 480 && <Header />
       }
     </>
   )
