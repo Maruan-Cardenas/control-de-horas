@@ -10,13 +10,10 @@ const Header = () => {
   const { user } = useContext(SessionContext)
   Session()
   return (
-    <header className='header-container'>
+    <header className={window.screen.width < 480 ? 'header-phone' : 'header-desktop'}>
       <Link to='/'>
         <img src={logo} alt='Talleres Puente Sur' />
       </Link>
-      {
-        user.uid && <Link to='/newjob'>Nuevo Trabajo</Link>
-      }
       {
         user.uid && <Link to='/user'>{user.displayName}</Link>
       }
