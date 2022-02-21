@@ -13,6 +13,7 @@ import SignInPage from 'pages/signIn/SignInPage.jsx'
 
 import SessionContext from 'context/context.config'
 import UserPage from 'pages/user/UserPage'
+import NewJobButton from 'components/newJobButton/NewJobButton'
 
 function App () {
   const { user } = useContext(SessionContext)
@@ -25,6 +26,9 @@ function App () {
         <Route path='/detail/:id' element={<DetailPage />} />
         <Route path='/user' element={<UserPage user={user.displayName} />} />
       </Routes>
+      {
+        user.uid && <NewJobButton />
+      }
     </>
   )
 }

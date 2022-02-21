@@ -11,6 +11,17 @@
     input {
       border: none;
       border-bottom: 2px solid black;
+      outline: none;
+    }
+    span {
+      border-bottom: 2px solid black;
+    }
+    .doblePoint {
+      padding: 0 .2em;
+      border: none;
+    }
+    .form-hours, .form-minuts {
+      width : 30px;
     }
   }
 }

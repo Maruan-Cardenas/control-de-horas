@@ -61,15 +61,18 @@ const ModalUpdateForm = ({ id, setModalForm }) => {
             />
             <div className='form-time'>
               <Field
+                className='form-hours'
                 type='number'
                 name='hours'
               />
-              <span>:</span>
+              <span>H</span>
+              <span className='doblePoint'>:</span>
               <Field
                 className='form-minuts'
                 type='number'
                 name='minuts'
               />
+              <span>M</span>
             </div>
             <button className='button' type='submit' disabled={isSubmitting}>
               Submit

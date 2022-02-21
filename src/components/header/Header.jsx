@@ -9,15 +9,11 @@ import SessionContext from 'context/context.config'
 const Header = () => {
   const { user } = useContext(SessionContext)
   Session()
-  console.log(user)
   return (
-    <header className='header-container'>
+    <header className='header'>
       <Link to='/'>
         <img src={logo} alt='Talleres Puente Sur' />
       </Link>
-      {
-        user.uid && <Link to='/newjob'>Nuevo Trabajo</Link>
-      }
       {
         user.uid && <Link to='/user'>{user.displayName}</Link>
       }

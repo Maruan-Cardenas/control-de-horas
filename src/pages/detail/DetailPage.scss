@@ -1,0 +1,12 @@
+.detailPage-container, .detail-container {
+  display: flex;
+}
+.detailPage-container {
+  height: calc(100vh - 100px);
+  justify-content: center;
+  align-items: center;
+  .detail-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
