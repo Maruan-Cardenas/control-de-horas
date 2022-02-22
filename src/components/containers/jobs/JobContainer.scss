@@ -1,6 +1,6 @@
 .jobContainer-container, .jobContainer-total{
   display: grid;
-  grid-template-columns: 120px 120px 50px 30px 30px;
+  grid-template-columns: 120px 120px 50px 60px;
   font-size: .9em;
   font-weight: bold;
   margin-bottom: 1em;
@@ -12,9 +12,9 @@
     outline: none;
     font-weight: bold;
     font-size: .9em;
-    text-align: left;
-    background-color: red;
-    padding: .5em 0;
+    text-align: center;
+    background-color: #293133;
+    padding: .7em 0;
     color: white;
     font-weight: bold;
     border-radius: 5px;
@@ -22,7 +22,7 @@
 }
 
 .jobContainer-container {
-  background-color: red;
+  background-color: #293133;
   align-items: center;
   color: white;
   font-weight: bold;

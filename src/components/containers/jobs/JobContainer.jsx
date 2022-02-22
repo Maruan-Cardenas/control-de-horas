@@ -69,7 +69,6 @@ const JobContainer = ({ db }) => {
           </select>
         </div>
         <div className='job-hora'>Horas</div>
-        <div className='job-hora'>Elim</div>
         <div className='job-hora'>Edit</div>
       </div>
       {

@@ -19,5 +19,17 @@
     img {
       max-width: 15px
     }
+    button.removeButton {
+      border: none;
+      color: white;
+      background-color: red;
+      padding: .5em;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 5px;
+      :disabled {
+        background-color: #293133;
+      }
+    }
   }
 }
