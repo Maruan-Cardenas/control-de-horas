@@ -56,7 +56,7 @@ const ModalUpdateForm = ({ id, setModalForm }) => {
               <button type='button' className='button' onClick={modalSwitch} disabled={newClient}>Añadir</button>
             </div>
             <Field
-              type='description'
+              type='textarea'
               name='description'
             />
             <div className='form-time'>
@@ -75,7 +75,7 @@ const ModalUpdateForm = ({ id, setModalForm }) => {
               <span>M</span>
             </div>
             <button className='button' type='submit' disabled={isSubmitting}>
-              Submit
+              Editar
             </button>
           </Form>
         )}

@@ -1,4 +1,6 @@
 import React from 'react'
+import clock from '../../images/clock.png'
+import calendar from '../../images/calendar.png'
 
 const Detail = ({ idJobs }) => {
   if (!idJobs) return <div>Cargando...</div>
@@ -6,13 +8,17 @@ const Detail = ({ idJobs }) => {
   const Hours = Math.floor(seconds / 3600)
   const Minuts = Math.floor((seconds / 60) % 60)
   return (
-    <div className='detail-container'>
-      <div className='detail-operator'>Operario: {operator}</div>
-      <div className='detail-client'>Cliente: {client}</div>
-      <div className='detail-description'>Descripción: {description}</div>
-      <div className='detail-time'>Tiempo: {Hours}:{Minuts < 10 ? '0' + Minuts : Minuts}</div>
-      <div className='detail-date'>Fecha: {date}</div>
-    </div>
+    <section className='detail-container'>
+      <article className='detail-operator'>
+        <h3>{operator}</h3>
+        <div className='detail-description'>
+         {description}
+         <p>Trabajo realizado para {client}</p>
+        </div>
+      </article>
+      <div className='detail-time'><img src={clock} alt="Tiempo" /> {Hours}:{Minuts < 10 ? '0' + Minuts : Minuts}h</div>
+      <div className='detail-date'><img src={calendar} alt="Fecha" /> {date}</div>
+    </section>
   )
 }
 
