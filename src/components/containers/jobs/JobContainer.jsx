@@ -69,7 +69,6 @@ const JobContainer = ({ db }) => {
           </select>
         </div>
         <div className='job-hora'>Horas</div>
-        <div className='job-hora'>Edit</div>
       </div>
       {
         (clientName === NAMES.CLIENT && operatorName === NAMES.OPERATOR) && jobs.map((res, index) => (

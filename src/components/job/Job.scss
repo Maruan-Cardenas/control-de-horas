@@ -2,7 +2,7 @@
 
 .job-container {
   display: grid;
-  grid-template-columns: 120px 120px 50px 60px;
+  grid-template-columns: 150px 150px 50px;
   padding: .5em 0;
   background-color: rgb(221, 8, 8);
   margin: .5em 0;
@@ -14,18 +14,12 @@
   color: white;
   font-weight: bold;
   grid-column: 1/4;
+  cursor: pointer;
   }
-  div {
+  div, .job-hours {
     justify-self: center;
     padding: .1em;
     align-self: center;
     font-size: .9em;
-  }
-  div.job-hours {
-    justify-self: center
-  }
-  img {
-    cursor: pointer;
-    max-width: 20px;
   }
 }

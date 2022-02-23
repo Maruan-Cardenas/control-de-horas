@@ -5,16 +5,14 @@ import './Job.scss'
 import edit from 'images/edit.png'
 import prohibited from 'images/prohibited.png'
 
-// routes
-import { Link } from 'react-router-dom'
-import ModalUpdateForm from 'components/forms/modalUpdateForm/ModalUpdateForm'
-
 import SessionContext from 'context/context.config'
+import Detail from 'components/detail/Detail'
 
 const Job = ({ db }) => {
   const { user } = useContext(SessionContext)
 
   const [modalForm, setModalForm] = useState(false)
+  const [detail, setDetail] = useState(false)
 
   const { operator, client, seconds, id } = db
 
@@ -24,10 +22,13 @@ const Job = ({ db }) => {
   const handleModal = () => {
     setModalForm(!modalForm)
   }
+  const handleDetail = () => {
+    setDetail(!detail)
+  }
   return (
     <>
       <div className='job-container'>
-        <Link className='job-link' to={`/detail/${id}`}>
+        <div className='job-link' onClick={handleDetail}>
           <div>
             {operator}
           </div>
@@ -37,21 +38,11 @@ const Job = ({ db }) => {
           <div className='job-hours'>
             {`${hours}:${minuts < 10 ? '0' + minuts : minuts}`}
           </div>
-        </Link>
-        <div>
-          {
-            (user.displayName === operator || user.displayName === 'Manuel Campos' || user.displayName === 'Maruan')
-              ? (
-                <img onClick={handleModal} src={edit} alt='remove' />
-                )
-              : <img src={prohibited} alt='Sin permisos' />
-          }
         </div>
       </div>
-
       {
-      modalForm && <ModalUpdateForm id={id} setModalForm={setModalForm} />
-    }
+      detail && <Detail detailID={id} />
+      }
     </>
   )
 }

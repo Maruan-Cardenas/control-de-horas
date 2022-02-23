@@ -8,7 +8,7 @@ import SetDataDB from 'services/setDB/setDB'
 import { Formik, Form, Field } from 'formik'
 import ClientsList from '../formComponents/ClientList'
 
-const ModalUpdateForm = ({ id, setModalForm }) => {
+const ModalUpdateForm = ({ id, setEdit }) => {
   const [setDataDB] = SetDataDB()
   const [setUpdateData] = UpdateDB('Jobs', id)
   const [newClient, setNewClient] = useState(false)
@@ -42,7 +42,7 @@ const ModalUpdateForm = ({ id, setModalForm }) => {
         onSubmit={values => {
           newClient && setDataDB({ ...values, newClient: 'Clients' })
           setUpdateData({ ...values })
-          setModalForm(false)
+          setEdit(false)
         }}
       >
         {({ isSubmitting }) => (
