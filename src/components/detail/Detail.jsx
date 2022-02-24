@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom'
 import removeDB from 'services/removeDB/removeDB'
 import obtainData from 'services/getDB/obtainData'
 import SessionContext from 'context/context.config'
+import ConfirmRemoveModal from './ConfirmRemoveModal'
 
 const Detail = ({ detailID }) => {
   const [jobs] = obtainData('Jobs')
@@ -20,6 +21,7 @@ const Detail = ({ detailID }) => {
   const { user } = useContext(SessionContext)
 
   const [edit, setEdit] = useState(false)
+  const [confirmRemove, setConfirmRemove] = useState(false)
 
   const idJobs = jobs.find(job => job.id === detailID)
 
@@ -33,6 +35,9 @@ const Detail = ({ detailID }) => {
   const handleRemove = () => {
     removeDB(id, 'Jobs')
     navigate('/')
+  }
+  const handleConfirmRemove = () => {
+    setConfirmRemove(!confirmRemove)
   }
   const handleEdit = () => {
     setEdit(!edit)
@@ -51,7 +56,7 @@ const Detail = ({ detailID }) => {
         <div className='detail-date'><img src={Calendar} alt="Fecha" /> {date}</div>
         <div className='button-container'>
           <button
-            onClick={handleRemove} 
+            onClick={handleConfirmRemove} 
             disabled={(user.displayName === operator || user.displayName === 'Manuel Campos' || user.displayName === 'Maruan') ? false : true}>
               Eliminar
               <img src={Remove} alt="Borrar" />
@@ -68,6 +73,9 @@ const Detail = ({ detailID }) => {
       </section>
       {
         edit && <ModalUpdateForm id={id} setModalForm={setEdit} />
+      }
+      {
+        confirmRemove && <ConfirmRemoveModal remove={handleRemove} noRemove={handleConfirmRemove} />
       }
     </>
   )

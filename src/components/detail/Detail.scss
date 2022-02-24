@@ -5,7 +5,7 @@
 .detail-container {
   flex-direction: column;
   gap: 20px;
-  width: 360px;
+  width: 100%;
   h3 {
     text-align: center;
   }
@@ -38,5 +38,44 @@
     background-color: #293133;
     cursor:no-drop;
   }
+}
 
+.confirmRemoveModal, .confirmRemoveModal div, .confirmRemoveModal span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmRemoveModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #29313377;
+  color: white;
+  backdrop-filter: blur(5px);
+  div {
+    flex-direction: column;
+    border: 2px dashed white;
+    border-radius: 10px;
+    padding: 1.5em;
+    span {
+      gap: 15px;
+      button {
+        width: 100px;
+        padding: .5em 0;
+        border: none;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      button.remove {
+        background-color: red;
+      }
+      button.noRemove {
+        background-color: green;
+      }
+    }
+  }
 }

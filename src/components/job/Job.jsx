@@ -27,8 +27,7 @@ const Job = ({ db }) => {
   }
   return (
     <>
-      <div className='job-container'>
-        <div className='job-link' onClick={handleDetail}>
+        <div className='job-container' onClick={handleDetail}>
           <div>
             {operator}
           </div>
@@ -39,7 +38,6 @@ const Job = ({ db }) => {
             {`${hours}:${minuts < 10 ? '0' + minuts : minuts}`}
           </div>
         </div>
-      </div>
       {
       detail && <Detail detailID={id} />
       }

@@ -7,15 +7,9 @@
   background-color: rgb(221, 8, 8);
   margin: .5em 0;
   border-radius: 5px;
-  .job-link {
-  display: grid;
-  grid-template-columns: 120px 120px 50px;
-  text-decoration: none;
   color: white;
   font-weight: bold;
-  grid-column: 1/4;
   cursor: pointer;
-  }
   div, .job-hours {
     justify-self: center;
     padding: .1em;
